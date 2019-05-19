@@ -1,0 +1,14 @@
+<div class="modal" [ngClass]="{'show': show, 'hide': !show}">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p *ngIf="gameService.game.action !== 'president examines top 3 cards'">Discard one</p>
+    <p *ngIf="gameService.game.action === 'president examines top 3 cards'">Click a card to continue</p>
+    <div class="policies">
+      <div *ngFor="let policy of policiesPath; let i = index">
+        <img [src]="policy" style="height:150px;" (click)="discard(i)">
+      </div>
+    </div>
+  </div>
+
+</div>

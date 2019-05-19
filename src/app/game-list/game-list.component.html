@@ -1,0 +1,25 @@
+<div class="container">
+  <ul class="list-group">
+    <ng-container *ngIf="gameService.godMode">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let game of games">
+        <div (click)="joinGame(game._id)" class="link-like">
+          Creator: {{game.creator.name}}
+        </div>
+        <span class="badge badge-primary badge-pill" (click)="countToDelete(game)" *ngIf="!game.counterToDelete || game.counterToDelete < toDelete">{{game.players.length}}</span>
+        <span class="badge badge-danger badge-pill" (click)="countToDelete(game)" *ngIf="game.counterToDelete >= toDelete">Delete?</span>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="!gameService.godMode">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let game of games"
+        (click)="joinGame(game._id)">
+          Creator: {{game.creator.name}}
+          <span class="badge badge-primary badge-pill">{{game.players.length}}</span>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<app-pagination (onReload)="reload()"></app-pagination>
+
+<app-modal [show]="modal.show" [message]="modal.message" (onHide)="closeModal()"></app-modal>

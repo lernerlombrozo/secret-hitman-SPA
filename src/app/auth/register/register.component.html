@@ -1,0 +1,27 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="card full-card fun-card">
+    <div class="card-body">
+      <h5 class="card-title">Sign Up</h5>
+      <hr>
+      <form (ngSubmit)="onRegister(f)" #f="ngForm">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="name" name="name" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" name="email" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+          <div class="d-flex justify-content-between">
+            <label>Password</label>
+          </div>
+          <input type="password" id="password" name="password" ngModel class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+      <br>
+      <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="!f.valid">Join</button>
+      </form>
+      <div class="d-flex justify-content-center text-button" routerLink="/login">Login</div>
+    </div>
+  </div>
+</div>

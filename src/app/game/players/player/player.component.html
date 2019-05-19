@@ -1,0 +1,10 @@
+<div class="card" style="width: 110px;" [ngClass]="{'dead': player.dead, 'president': president, 'chancellor': chancellor}">
+  <img class="card-img-top" [src]="image" [alt]="image">
+  <img class="over-image" src="assets/img/ballot/ja.png" alt="ja" *ngIf="this.gameService.game.allPlayersVoted && player.vote===true">
+  <img class="over-image" src="assets/img/ballot/nein.png" alt="nein" *ngIf="this.gameService.game.allPlayersVoted && player.vote===false">
+  <div class="card-body">
+    <p class="card-text">
+      {{player.player.name}}
+    </p>
+  </div>
+</div>

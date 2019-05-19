@@ -1,0 +1,14 @@
+<div class="chat-container">
+  <div class="chat">
+    <ul class="list-group" *ngIf="gameService.chat">
+      <li class="list-group-item" *ngFor="let message of gameService.chat" [ngClass]="{'history': !message.player, 'me': message.player && message.player._id == authService.userId}">
+        <small>
+          {{message.player ? message.player.name : "History"}}:
+        </small>
+        <p>{{message.message}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

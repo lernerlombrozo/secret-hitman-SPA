@@ -1,0 +1,17 @@
+<div class="modal" [ngClass]="{'show': show, 'hide': !show}">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h2 *ngIf="gameService.game.action === 'liberals win'">
+      Liberals Win
+    </h2>
+    <h2 *ngIf="gameService.game.action === 'fascists win'">
+      Fascists Win
+    </h2>
+    <div class="container d-flex justify-content-center">
+      <button *ngIf="gameService.game.creator === authService.userId" type="button" class="btn btn-primary" (click)="restartGame()">Restart game</button>
+      <button type="button" class="btn btn-primary" (click)="close()">Stay in game</button>
+      <button type="button" class="btn btn-secondary" (click)="goHome()">Go to menu</button>
+    </div>
+  </div>
+</div>

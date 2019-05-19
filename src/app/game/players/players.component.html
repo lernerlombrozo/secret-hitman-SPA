@@ -1,0 +1,6 @@
+<div class="players">
+  <app-player *ngFor="let player of gameService.game.players; let i = index" [player]="player" [playerNumber]="i" [president]="isPresident(i)" [chancellor]="i===gameService.game.chancellor" (click)="selectPlayer(i)" [change]="change"></app-player>
+</div>
+
+<app-modal [show]="modal.show" [message]="modal.message" (onHide)="closeModal()"></app-modal>
+

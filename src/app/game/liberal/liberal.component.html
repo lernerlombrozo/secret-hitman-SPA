@@ -1,0 +1,12 @@
+<div class="board-container">
+    <img [src]="image" class="board">
+    <img src="assets/img/policies/liberal.png" class="piece one" *ngIf="gameService.game.board.liberal>0">
+    <img src="assets/img/policies/liberal.png" class="piece two" *ngIf="gameService.game.board.liberal>1">
+    <img src="assets/img/policies/liberal.png" class="piece three" *ngIf="gameService.game.board.liberal>2">
+    <img src="assets/img/policies/liberal.png" class="piece four" *ngIf="gameService.game.board.liberal>3">
+    <img src="assets/img/policies/liberal.png" class="piece five" *ngIf="gameService.game.board.liberal>4">
+    <img src="assets/img/token/token.png" class="token eins" *ngIf="gameService.game.board.electionTracker==0">
+    <img src="assets/img/token/token.png" class="token zwei" *ngIf="gameService.game.board.electionTracker==1">
+    <img src="assets/img/token/token.png" class="token drei" *ngIf="gameService.game.board.electionTracker==2">
+    <img src="assets/img/token/token.png" class="token vier" *ngIf="gameService.game.board.electionTracker==3">
+</div>

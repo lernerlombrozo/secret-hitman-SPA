@@ -1,0 +1,9 @@
+<div class="board-container">
+  <img [src]="image" class="board">
+  <img src="assets/img/policies/fascist.png" class="piece one" *ngIf="gameService.game.board.fascist>0">
+  <img src="assets/img/policies/fascist.png" class="piece two" *ngIf="gameService.game.board.fascist>1">
+  <img src="assets/img/policies/fascist.png" class="piece three" *ngIf="gameService.game.board.fascist>2">
+  <img src="assets/img/policies/fascist.png" class="piece four" *ngIf="gameService.game.board.fascist>3">
+  <img src="assets/img/policies/fascist.png" class="piece five" *ngIf="gameService.game.board.fascist>4">
+  <img src="assets/img/policies/fascist.png" class="piece six" *ngIf="gameService.game.board.fascist>5">
+</div>

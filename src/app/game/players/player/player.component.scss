@@ -1,0 +1,18 @@
+.president{
+  background-color: rgb(220,220,220);
+}
+
+.chancellor{
+  background-color: rgb(220,220,200);
+}
+
+.over-image{
+  position:absolute;
+  right:0;
+  bottom:64px; // don't know why but this seems to work
+  width:80%;
+}
+
+.dead{
+    background-color: rgba(248, 0, 0, 0.4);
+}

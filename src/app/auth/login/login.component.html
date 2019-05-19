@@ -1,0 +1,28 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="card full-card fun-card">
+    <img src="https://mdbootstrap.com/img/Photos/Others/men.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Login</h5>
+      <form (ngSubmit)="onSignin(f)" #f="ngForm">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" ngModel>
+          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <div class="d-flex justify-content-between">
+            <label>Password</label>
+            <a class="end-text" routerLink="/reset-password">Forgot password</a>
+          </div>
+          <input type="password" class="form-control" id="password" name="password" ngModel placeholder="Password">
+        </div>
+        <button class="btn btn-outline-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
+      </form>
+      <div class="d-flex justify-content-center text-button" routerLink="/register">Create account</div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <small>Based on the game <a href="https://www.secrethitler.com/" target="_blank">Secret Hitler</a>. I just don't want to offend anyone. </small>
+</div>

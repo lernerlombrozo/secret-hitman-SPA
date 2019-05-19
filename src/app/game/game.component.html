@@ -1,0 +1,41 @@
+<div class="margin">
+	<div class="alert alert-info fixed" role="alert" *ngIf="showAlert">
+		{{messageToShow}}
+	</div>
+	<app-players></app-players>
+	<div class="box">
+		<div class="main">
+			<app-liberal></app-liberal>
+			<app-fascist [players]="gameService.game.playerCount"></app-fascist>
+			<app-me [role]="gameService.getMyRole()"></app-me>
+		</div>
+		<div class="side">
+			<div class="side-scroll" #chat>
+				<app-chat></app-chat>
+			</div>
+			<div class="input-group mb-3 side-input">
+				<div class="input-group-prepend">
+					<button class="btn btn-primary" type="button" (click)="sendMessage()">Send</button>
+				</div>
+				<input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"
+					[(ngModel)]="message">
+			</div>
+		</div>
+	</div>
+	<div class="alert alert-info fixed-bottom" role="alert">
+		{{gameService.instructions}}
+	</div>
+	<div class="alert-mockup" role="alert">
+	</div>
+	<app-modal [show]="modal.show" [message]="modal.message" (onHide)="closeModal()"></app-modal>
+	<app-discard [cards]="gameService.game.deck.slice(0,3)"
+		[show]="imPresident() && (gameService.game.action === 'president discards' || gameService.game.action === 'president examines top 3 cards')"
+		(onDiscard)="discardTile($event)">
+	</app-discard>
+	<app-discard [cards]="gameService.game.deck.slice(0,2)"
+		[show]="gameService.myOrder === gameService.game.lastChancellor && gameService.myOrder === gameService.game.chancellor && gameService.game.action === 'chancellor discards'"
+		(onDiscard)="discardTile($event)">
+	</app-discard>
+	<app-win-screen [show]="gameService.game.action === 'liberals win' || gameService.game.action === 'fascists win'"
+		(onHide)="closeWinScreen()">
+	</app-win-screen>

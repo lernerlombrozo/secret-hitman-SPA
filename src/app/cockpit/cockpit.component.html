@@ -1,0 +1,35 @@
+<div style="display:block">
+	<button type="button" class="btn btn-primary margin" (click)="makeNewGame()" *ngIf="gameService.game==null">New
+		Game
+	</button>
+	<div style="display:inline-block" *ngIf="gameService.game==null && gameService.godMode">
+		<div class="input-group mb-3">
+			<select class="custom-select" [(ngModel)]="players">
+				<option *ngFor="let player of playerList" [value]="player">{{player}}</option>
+			</select>
+			<div class="input-group-append" (click)="makeNewPopulatedGame()">
+				<label class="input-group-text btn-success">Populated Game</label>
+			</div>
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-secondary margin" (click)="startGame()"
+		*ngIf="gameService.game!==null && !gameService.game.started">Start Game</button>
+	<ng-container *ngIf="gameService.game!==null && gameService.game.started">
+		<button type="button" class="btn btn-warning margin" (click)="restartGame()">Restart Game</button>
+    <ng-container *ngIf="gameService.godMode">
+		<button type="button" class="btn btn-danger margin" (click)="voteAll(true)">All Votes True</button>
+		<button type="button" class="btn btn-danger margin" (click)="voteAll(false)">All Votes False</button>
+		<button type="button" class="btn btn-dark margin"
+			(click)="cl(['things', 'I', 'want', 'to', 'log'])">Console.warn()</button>
+    </ng-container>
+	</ng-container>
+	<button type="button" class="btn btn-info margin" (click)="goHome()" *ngIf="gameService.game !== null">Go
+		home</button>
+	<!-- <button type="button" class="btn btn-light margin">Light</button> -->
+</div>
+
+<app-game-list *ngIf="!gameService.gameId"></app-game-list>
+<app-game *ngIf="gameService.gameId"></app-game>
+
+<app-modal [show]="modal.show" [message]="modal.message" (onHide)="closeModal()"></app-modal>

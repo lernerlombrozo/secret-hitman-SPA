@@ -1,0 +1,28 @@
+.full-card{
+  max-width: 480px;
+}
+
+.fun-card{
+  border-radius:20px;
+  border:2px solid rgba(0, 0, 0, .1);
+  padding:40px;
+}
+
+.end-text{
+  text-align: end;
+}
+
+.text-button{
+  padding-top:15px;
+  text-decoration: underline;
+  color: rgba(0,0,0,.5);
+}
+
+.text-button:hover{
+  color: rgba(0,0,0,.8);
+}
+
+.card-container{
+  max-width:100%;
+  width:480px;
+}

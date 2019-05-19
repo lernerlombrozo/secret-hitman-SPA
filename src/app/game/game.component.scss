@@ -1,0 +1,51 @@
+@import '../../styles.scss';
+
+/* Column container */
+.box {
+  display: flex;
+  align-items: flex-start;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 20px;
+  position:relative;
+  height:2 * $board-size + 20;
+  min-height: 200px;
+  min-width: 300px;
+  max-height:2 * $board-size + 20;;
+}
+
+.side-scroll{
+  position: absolute;
+  overflow:scroll;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.side-input{
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+
+/* Main column */
+.main {
+  background-color: white;
+  padding: 20px;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .box{
+    flex-direction: column;
+  }
+}

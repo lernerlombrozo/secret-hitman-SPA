@@ -1,0 +1,33 @@
+.chat {
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  font-size:15px;
+  ul{
+    margin:30px;
+    padding-bottom: 30px;
+  }
+}
+
+.message {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  margin:10px;
+}
+
+.name {
+  margin-right: 10px;
+}
+
+p {
+  margin-bottom: 0px !important;
+}
+
+.me {
+  text-align: end;
+}
+
+.history{
+  color:red;
+}

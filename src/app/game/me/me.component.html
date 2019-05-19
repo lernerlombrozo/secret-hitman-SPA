@@ -1,0 +1,7 @@
+<div class="container">
+  <img [src]="roleImage">
+  <img src="assets/img/ballot/ja.png" (click)="vote(true)">
+  <img src="assets/img/ballot/nein.png" (click)="vote(false)">
+</div>
+
+<app-modal [show]="modal.show" [message]="modal.message" (onHide)="closeModal()"></app-modal>
